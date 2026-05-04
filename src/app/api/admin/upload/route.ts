@@ -1,3 +1,5 @@
+﻿export const dynamic = 'force-dynamic'
+
 import { auth } from '@/lib/auth'
 import { processUpload } from '@/lib/upload'
 import { NextRequest, NextResponse } from 'next/server'
