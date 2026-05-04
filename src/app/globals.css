@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #FAF7F2;
+  --color-gold: #B8935A;
+  --color-gold-light: #D4AC72;
+  --color-gold-dark: #8B6E3E;
+  --color-charcoal: #1A1A1A;
+  --color-charcoal-light: #2D2D2D;
+  --color-divider: #E8E2D5;
+  --color-stone: #9C9080;
+  --color-cream: #F2EDE4;
+
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-inter);
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  --shadow-luxury: 0 2px 8px rgba(26,26,26,0.06), 0 8px 32px rgba(184,147,90,0.08);
+  --shadow-card: 0 1px 4px rgba(26,26,26,0.05), 0 4px 16px rgba(26,26,26,0.06);
+  --shadow-elevated: 0 4px 16px rgba(26,26,26,0.08), 0 16px 48px rgba(184,147,90,0.10);
+}
+
+:root {
+  --background: #FAF7F2;
+  --foreground: #1A1A1A;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+}
+
+::selection {
+  background: #B8935A22;
+  color: #1A1A1A;
+}
+
+.font-display {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Luxury scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #FAF7F2; }
+::-webkit-scrollbar-thumb { background: #E8E2D5; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #B8935A; }
+
+/* Letter-spacing utility */
+.tracking-luxury { letter-spacing: 0.12em; }
+.tracking-display { letter-spacing: -0.03em; }
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid #B8935A;
+  outline-offset: 3px;
+}
+
+/* Image treatment */
+.image-luxury {
+  position: relative;
+  overflow: hidden;
+}
+.image-luxury img {
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.image-luxury:hover img {
+  transform: scale(1.04);
+}
+
+/* Grain texture overlay */
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #B8935A 0%, #D4AC72 50%, #8B6E3E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Prose styles for rich text */
+.prose-luxury {
+  color: #2D2D2D;
+  line-height: 1.8;
+}
+.prose-luxury h1,
+.prose-luxury h2,
+.prose-luxury h3 {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  color: #1A1A1A;
+}
+.prose-luxury p { margin-bottom: 1.25em; }
+.prose-luxury a { color: #B8935A; text-decoration: underline; text-decoration-color: transparent; }
+.prose-luxury a:hover { text-decoration-color: #B8935A; }
+
+/* Header nav link hover */
+.tosco-nav-link { color: #1A1A1A; transition: color 0.2s ease; }
+.tosco-nav-link:hover { color: #B8935A; }
+.tosco-nav-link-active { color: #B8935A; }
+
+/* Header inquire button */
+.tosco-inquire-btn {
+  border: 1px solid #B8935A;
+  color: #B8935A;
+  transition: color 0.25s ease, background-color 0.25s ease;
+}
+.tosco-inquire-btn:hover { background-color: #B8935A; color: #FAF7F2; }
+.tosco-inquire-btn:active { background-color: #8B6E3E; color: #FAF7F2; }
+
+/* Header icon buttons */
+.tosco-icon-btn { transition: opacity 0.2s ease; }
+.tosco-icon-btn:hover { opacity: 0.65; }
+.tosco-icon-btn:active { opacity: 0.4; }
+
+/* Footer links */
+.tosco-footer-link { color: #9C9080; text-decoration: none; transition: color 0.2s ease; }
+.tosco-footer-link:hover { color: #E8E2D5; }
+.tosco-footer-social { color: #9C9080; transition: color 0.2s ease; cursor: pointer; }
+.tosco-footer-social:hover { color: #B8935A; }
+.tosco-footer-contact-link { color: #9C9080; text-decoration: none; transition: color 0.2s ease; }
+.tosco-footer-contact-link:hover { color: #B8935A; }
+
+/* Home component link hover states */
+.tosco-product-name-link { color: #1A1A1A; text-decoration: none; transition: color 0.2s ease; }
+.tosco-product-name-link:hover { color: #B8935A; }
+
+.tosco-view-all-btn { display: inline-flex; align-items: center; gap: 12px; border: 1px solid #1A1A1A; padding: 16px 40px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.12em; color: #1A1A1A; text-decoration: none; transition: background 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.tosco-view-all-btn:hover { background: #1A1A1A; color: #FAF7F2; }
+
+.tosco-collections-view-link { display: inline-flex; align-items: center; gap: 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.12em; color: #B8935A; text-decoration: none; transition: opacity 0.2s ease; }
+.tosco-collections-view-link:hover { opacity: 0.7; }
+
+.tosco-hero-primary-btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; background: #B8935A; color: #FAF7F2; text-decoration: none; transition: background 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.tosco-hero-primary-btn:hover { background: #8B6E3E; transform: translateY(-1px); }
+
+.tosco-hero-secondary-btn { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(250,247,242,0.5); padding: 16px 32px; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: #FAF7F2; text-decoration: none; transition: border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.tosco-hero-secondary-btn:hover { border-color: #FAF7F2; background: rgba(250,247,242,0.08); transform: translateY(-1px); }
+
+.tosco-story-link { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; transition: opacity 0.2s ease; }
+.tosco-story-link:hover { opacity: 0.6; }
