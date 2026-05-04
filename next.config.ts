@@ -7,10 +7,6 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  experimental: {
-    dynamicIO: false,
-  },
-  output: 'standalone',
   images: {
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
